@@ -33,7 +33,7 @@
                             <input type="submit" name="delete"
                                 value="Delete Recipe"> 
                         </div>
-                    </form> </p>
+                    </form></p>
                         </div>
                     @endforeach
                 </div>

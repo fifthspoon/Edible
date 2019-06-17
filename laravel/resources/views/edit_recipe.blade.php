@@ -5,59 +5,57 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create new recipe</div>
-
+                <div class="card-header">Edit Recipe</div>
                 <div class="card-body">
-                    <form id="add" method="post" action="/added">
-
+                @foreach ($recipes as $recipe)
+                    <form id="change" method="post" action="/uedit">
                     {{ csrf_field() }}
-
                     <p>
                     <label for="title">Title</label>
                     </p>
-
+ 
                     <p>
-                    <input type="text" name="title">
+                    <input type="text" name="title" value="{{ $recipe->title }}">
                     </p>
-                    
+                   
                     <p>
                     <label for="category">Catergory</label>
                     </p>
-
+ 
                     <p>
                     Meat
                     <input type="radio" name="category" value="meat" checked>  <br />
                     Fish
                     <input type="radio" name="category" value="fish">
                     </p>
-                    
+                   
                     <p>
                     <label for="content">Description:</label>
                     </p>
-
+ 
                     <p>
-                    <textarea name="content" rows="10" cols="70"></textarea>
+                    <textarea name="content" rows="10" cols="70">  {{ $recipe->content }} </textarea>
                     </p>
-                    
+                   
                     <p>
                     <label for="picture">Photo URL:</label>
                     </p>
-                    
+                   
                     <p>
-                    <input type="text" name="picture" value="">
+                    <input type="text" name="picture" value="{{ $recipe->picture }}">
                     </p>
-                    
-                    <?php $bywho = Auth::user()->name;?>
-                    
+               
+                   
                     <p>
-                    <input type="hidden" name="createdby" value="<?php echo $bywho;?>" readonly>
+                     <input type="hidden" name="findRecipe" value="{{ $recipe->id }}">        
                     </p>
-                    
+             
                     <p>
-                    <input type="submit" value="Add recipe">
+                    <input type="submit" value="Update Recipe">
                     </p>
-
+ 
                     </form>
+                    @endforeach
                 </div>
             </div>
         </div>

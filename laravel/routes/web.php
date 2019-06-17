@@ -55,6 +55,18 @@ Route::get('/myrecipe', 'RecipesController@getMyRecipe');
 
 Auth::routes();
  
+Route::get('/udelete', 'RecipesController@udelete');
+
+Auth::routes();
+
+Route::post('/uedit', 'RecipesController@uedit');
+
+Auth::routes();
+
+Route::get('/edit_recipe', 'RecipesController@editRecipe');
+
+Auth::routes();
+ 
 Route::get('/create_recipe', function () {
     return view('create_recipe');
 });
